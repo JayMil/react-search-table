@@ -1,3 +1,4 @@
+//Fake generated data
 module.exports =  [{
   "id": 1,
   "gender": "Male",
