@@ -41,9 +41,16 @@ var columnConfiguration = {
 };
 
 //Setup filter data when input is changed
-function filterData(input, data)
+function filterData(input_text, data)
 {
-
+  var filteredData = _.filter(data, function(person){
+    var id = person.id + "";
+    if(id.indexOf(input_text) >= 0)
+    {
+      return true;
+    }
+    
+  });
 }
 
 function page()
