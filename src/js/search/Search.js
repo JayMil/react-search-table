@@ -10,13 +10,20 @@ require("./search.css");
 var Search = React.createClass({
     propTypes: {
         data:           React.PropTypes.array.isRequired,
-        tableConfig:    React.PropTypes.object.isRequired
+        tableConfig:    React.PropTypes.object.isRequired,
+        filter: React.PropTypes.func.isRequired
+    },
+    getInitialState: function() {
+        return {searchData: this.props.data};
+    },
+    updateData: function(filteredData) {
+        this.setState({searchData: filteredData});
     },
     render() {
         return (
             <div className="container-fluid">
-              <SearchInput />
-              <SearchTable data={this.props.data} columns={this.props.tableConfig} />
+              <SearchInput data={this.props.data} filter={this.props.filter} updateData={this.updateData} />
+              <SearchTable data={this.state.searchData} columns={this.props.tableConfig} />
             </div>
         );
     }

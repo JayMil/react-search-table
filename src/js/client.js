@@ -1,3 +1,4 @@
+/*eslint no-console: ["error", {allow: ["warn", "error", "log"] }] */
 import React from "react";
 import ReactDOM from "react-dom";
 import _ from "lodash";
@@ -44,6 +45,7 @@ var columnConfiguration = {
 //Setup filter data when input is changed
 function filterData(input_text, data)
 {
+    console.log("filterData: ", input_text);
     var filteredData = _.filter(data, function(person){
         if(person.id.indexOf(input_text) >= 0)
         {
@@ -74,7 +76,7 @@ function page()
     return (
         <div className="content-fluid">
           <h1>Search Demo</h1>
-          <Search data={peopleData} tableConfig={columnConfiguration} />
+          <Search data={peopleData} tableConfig={columnConfiguration} filter={filterData} />
         </div>
         );
 }
