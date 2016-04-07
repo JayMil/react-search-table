@@ -45,8 +45,7 @@ var columnConfiguration = {
 function filterData(input_text, data)
 {
     var filteredData = _.filter(data, function(person){
-        var id = person.id + "";
-        if(id.indexOf(input_text) >= 0)
+        if(person.id.indexOf(input_text) >= 0)
         {
             return true;
         }

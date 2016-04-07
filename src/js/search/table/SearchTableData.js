@@ -5,6 +5,9 @@ import React from "react";
  * @param  {[react property object]} props React property object containing data to be rendered.
  * @return {[react element]}         The rendered td element
  */
-export default function(props) {
+SearchTableData.propTypes = {
+    data: React.PropTypes.string.isRequired
+};
+export default function SearchTableData(props) {
     return (<td>{props.data}</td>);
 }
